@@ -1,0 +1,29 @@
+.labelCustom{
+    font-family: 'MontserratRegular';
+    font-size: .8em;
+}
+
+.MenuContainerMain{
+    position: relative;
+    width: 100%;
+    padding: 0px 15px;
+    .menuMain{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .categoryMain{
+        position: relative;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        flex-direction: column;
+        h3{
+            font-family: 'MontserratBold' !important;
+            font-size: 1.25em;
+            color: red;
+        }
+    }
+}
+
+

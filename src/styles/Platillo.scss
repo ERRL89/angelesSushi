@@ -1,0 +1,87 @@
+.productMain{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.183);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+    
+    .imgProductContainer{
+        position: relative;
+        width: 30%;
+        height: 100%;
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .infoProductContainer{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        flex-direction: column;
+        gap: 5px;
+        width: 70%;
+        height: 100%;
+
+        .titleProduct{
+            font-family: 'MontserratBold' !important;
+            font-size: 1em;
+        }
+
+        .include{
+            font-family: 'MontserratBold' !important;
+        }
+
+        .includeList{
+            font-family: 'MontserratRegular' !important;
+        }
+        /* Quitar borde del acordeón */
+        .accordion .accordion-item {
+            height: 100%;
+            width: 100%;
+            border: none;
+        }
+
+        /* Quitar borde del botón del acordeón */
+        .accordion .accordion-button {
+            border-bottom: 1px solid rgba(128, 128, 128, 0.227);
+            box-shadow: none;
+            position: relative;
+        }
+
+        /* Opcional: Estilo para cuando el acordeón está abierto */
+        .accordion .accordion-button:not(.collapsed) {
+            box-shadow: none;
+            background-color: white;
+        }
+
+        .accordion-button::after {
+           margin-left: 10px;
+           rotate: 180deg;
+           color: red !important;
+        }
+
+        .infoProductText{
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            align-items: end;
+            padding: 5px 5px;
+            .price{
+                position: relative;
+                font-family: 'MontserratBold' !important;
+                font-size: 1.2em;
+                color: red;
+            }
+        }
+    }
+}
