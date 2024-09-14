@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Platillo from './Platillo';
 import '../styles/Menu.scss';
 import '../styles/Platillo.scss';
@@ -303,87 +303,121 @@ const Menu = () => {
         },
     ];
 
+    const [rollsIsVisible, setRollsIsVisible] = useState(true);
+    const [charolasIsVisible, setCharolasIsVisible] = useState(true);
+    const [combosIsVisible, setCombosIsVisible] = useState(true);
+    const [platillosIsVisible, setPlatillosIsVisible] = useState(true);
+
+    const [selectedRadio, setSelectedRadio] = useState('btnradio1');
+
+    const all = (event) => {
+        setRollsIsVisible(true); 
+        setCharolasIsVisible(true);
+        setCombosIsVisible(true);
+        setPlatillosIsVisible(true); 
+
+        setSelectedRadio(event.target.id);
+    };
+
+    const rolls = (event) => {
+        setRollsIsVisible(true); 
+        setCharolasIsVisible(false);
+        setCombosIsVisible(false);
+        setPlatillosIsVisible(false); 
+
+        setSelectedRadio(event.target.id);
+    };
+
+    const charolas1 = (event) => {
+        setRollsIsVisible(false); 
+        setCharolasIsVisible(true);
+        setCombosIsVisible(false);
+        setPlatillosIsVisible(false); 
+
+        setSelectedRadio(event.target.id);
+    };
+
+    const combos1 = (event) => {
+        setRollsIsVisible(false); 
+        setCharolasIsVisible(false);
+        setCombosIsVisible(true);
+        setPlatillosIsVisible(false); 
+        
+        setSelectedRadio(event.target.id);
+    };
+
+    const platillos1 = (event) => {
+        setRollsIsVisible(false); 
+        setCharolasIsVisible(false);
+        setCombosIsVisible(false);
+        setPlatillosIsVisible(true);  
+
+        setSelectedRadio(event.target.id);
+    };
+
     return (
         <div className="MenuContainerMain mb-5">
-            {/*<div className="menuMain">
+        
+            <div className="menuMain">
                 <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" />
+                    <input 
+                        type="radio" 
+                        className="btn-check" 
+                        name="btnradio" 
+                        id="btnradio1" 
+                        autoComplete="off" 
+                        onChange={all} 
+                        checked={selectedRadio === 'btnradio1' ? true : false} 
+                    />
                     <label className="btn btn-outline-secondary labelCustom" htmlFor="btnradio1">Todos</label>
-
-                    <input type="radio" className="btn-check" name="btnradio" id="btnradio2" autoComplete="off" />
+                    
+                    <input 
+                        type="radio" 
+                        className="btn-check" 
+                        name="btnradio" 
+                        id="btnradio2" 
+                        autoComplete="off" 
+                        onChange={rolls} 
+                        checked={selectedRadio === 'btnradio2' ? true : false} 
+                    />
                     <label className="btn btn-outline-secondary labelCustom" htmlFor="btnradio2">Rollos</label>
 
-                    <input type="radio" className="btn-check" name="btnradio" id="btnradio3" autoComplete="off" />
+                    <input 
+                        type="radio" 
+                        className="btn-check" 
+                        name="btnradio" 
+                        id="btnradio3" 
+                        autoComplete="off" 
+                        onChange={charolas1} 
+                        checked={selectedRadio === 'btnradio3' ? true : false} 
+                    />
                     <label className="btn btn-outline-secondary labelCustom" htmlFor="btnradio3">Charolas</label>
 
-                    <input type="radio" className="btn-check" name="btnradio" id="btnradio4" autoComplete="off" />
+                    <input 
+                        type="radio" 
+                        className="btn-check" 
+                        name="btnradio" 
+                        id="btnradio4" 
+                        autoComplete="off" 
+                        onChange={combos1} 
+                        checked={selectedRadio === 'btnradio4' ? true : false} 
+                    />
                     <label className="btn btn-outline-secondary labelCustom" htmlFor="btnradio4">Combos</label>
 
-                    <input type="radio" className="btn-check" name="btnradio" id="btnradio5" autoComplete="off" />
+                    <input 
+                        type="radio" 
+                        className="btn-check" 
+                        name="btnradio" 
+                        id="btnradio5" 
+                        autoComplete="off" 
+                        onChange={platillos1} 
+                        checked={selectedRadio === 'btnradio5' ? true : false} 
+                    />
                     <label className="btn btn-outline-secondary labelCustom" htmlFor="btnradio5">Platillos</label>
                 </div>
-            </div>*/}
-            <div className="categoryMain mt-4" id="rollos">
-                <h3>Rollos (10 pzas.)</h3>
-                <div className="accordion" id="accordionExample">
-                    {rollos.map((rollo) => (
-                        <Platillo
-                            key={rollo.id}
-                            id={rollo.id}
-                            title={rollo.title}
-                            items={rollo.items}
-                            imageSrc={rollo.imageSrc}
-                            price={rollo.price}
-                        />
-                    ))}
-                </div>
             </div>
-            <div className="categoryMain mt-4" id="rollosEmpanizados">
-                <h3>Rollos Empanizados (10 pzas.)</h3>
-                <div className="accordion" id="accordionExample">
-                    {empanizados.map((empanizado) => (
-                        <Platillo
-                            key={empanizado.id}
-                            id={empanizado.id}
-                            title={empanizado.title}
-                            items={empanizado.items}
-                            imageSrc={empanizado.imageSrc}
-                            price={empanizado.price}
-                        />
-                    ))}
-                </div>
-            </div>
-            <div className="categoryMain mt-4" id="platillos">
-                <h3>Platillos</h3>
-                <div className="accordion" id="accordionExample">
-                    {platillos.map((platillo) => (
-                        <Platillo
-                            key={platillo.id}
-                            id={platillo.id}
-                            title={platillo.title}
-                            items={platillo.items}
-                            imageSrc={platillo.imageSrc}
-                            price={platillo.price}
-                        />
-                    ))}
-                </div>
-            </div>
-            <div className="categoryMain mt-4" id="combos">
-                <h3>Combos</h3>
-                <div className="accordion" id="accordionExample">
-                    {combos.map((combo) => (
-                        <Platillo
-                            key={combo.id}
-                            id={combo.id}
-                            title={combo.title}
-                            items={combo.items}
-                            imageSrc={combo.imageSrc}
-                            price={combo.price}
-                        />
-                    ))}
-                </div>
-            </div>
-            <div className="categoryMain mt-4" id="charolas">
+
+            {charolasIsVisible && (<div className="categoryMain mt-4" id="charolas">
                 <h3>Charolas</h3>
                 <div className="accordion" id="accordionExample">
                     {charolas.map((charola) => (
@@ -397,7 +431,72 @@ const Menu = () => {
                         />
                     ))}
                 </div>
-            </div>
+            </div>)}
+            
+            {rollsIsVisible && (<div className="categoryMain mt-4" id="rollos">
+                <h3>Rollos (10 pzas.)</h3>
+                <div className="accordion" id="accordionExample">
+                    {rollos.map((rollo) => (
+                        <Platillo
+                            key={rollo.id}
+                            id={rollo.id}
+                            title={rollo.title}
+                            items={rollo.items}
+                            imageSrc={rollo.imageSrc}
+                            price={rollo.price}
+                        />
+                    ))}
+                </div>
+            </div> )}
+           
+            {rollsIsVisible && (<div className="categoryMain mt-4" id="rollosEmpanizados">
+                <h3>Rollos Empanizados (10 pzas.)</h3>
+                <div className="accordion" id="accordionExample">
+                    {empanizados.map((empanizado) => (
+                        <Platillo
+                            key={empanizado.id}
+                            id={empanizado.id}
+                            title={empanizado.title}
+                            items={empanizado.items}
+                            imageSrc={empanizado.imageSrc}
+                            price={empanizado.price}
+                        />
+                    ))}
+                </div>
+            </div>)}
+
+            {platillosIsVisible && (<div className="categoryMain mt-4" id="platillos">
+                <h3>Platillos</h3>
+                <div className="accordion" id="accordionExample">
+                    {platillos.map((platillo) => (
+                        <Platillo
+                            key={platillo.id}
+                            id={platillo.id}
+                            title={platillo.title}
+                            items={platillo.items}
+                            imageSrc={platillo.imageSrc}
+                            price={platillo.price}
+                        />
+                    ))}
+                </div>
+            </div>)}
+
+            {combosIsVisible && (<div className="categoryMain mt-4" id="combos">
+                <h3>Combos</h3>
+                <div className="accordion" id="accordionExample">
+                    {combos.map((combo) => (
+                        <Platillo
+                            key={combo.id}
+                            id={combo.id}
+                            title={combo.title}
+                            items={combo.items}
+                            imageSrc={combo.imageSrc}
+                            price={combo.price}
+                        />
+                    ))}
+                </div>
+            </div>)}
+
         </div>
     );
 }
