@@ -10,7 +10,7 @@ const Title = () => {
                     <img src={perfil} alt="Sushi Teriyaki Angeles" />
                 </div>
                 <div className="textContainer">
-                    <h3>Sushi Teriyaki Angeles</h3>
+                    <h3>Angeles Sushi Teriyaki</h3>
                 </div>
             </div>
         </div>

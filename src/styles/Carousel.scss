@@ -1,0 +1,19 @@
+.iconsContainer{
+    position: absolute;
+    z-index: 1000;
+    bottom: 5px;
+    right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    a{ 
+      ion-icon {
+        background-color: rgb(255, 105, 11) !important;
+        border-radius: 10px;
+        color: rgb(255, 255, 255);
+        font-size: 35px;
+      }
+    }
+    
+}

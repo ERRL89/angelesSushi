@@ -5,24 +5,33 @@ import img2 from '../images/carousel/2.png';
 import img3 from '../images/carousel/3.png';
 
 const Carousel = () => {
+
     return (
-            <div id="carouselExample" className="carousel slide">
+            <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={img1} className="d-block w-100" alt="Imagen Sushi Teriyaki Angeles platillo 1"/>
+                    <img src={img1} className="d-block w-100" alt="Imagen 1"/>
+                    </div>
+                    <div class="carousel-item">
+                    <img src={img2} className="d-block w-100" alt="Imagen 1"/>
                     </div>
                     <div className="carousel-item">
-                        <img src={img2} className="d-block w-100" alt="Imagen Sushi Teriyaki Angeles platillo 2"/>
-                    </div>
-                    <div className="carousel-item">
-                        <img src={img3} className="d-block w-100" alt="Imagen Sushi Teriyaki Angeles platillo 3"/>
+                    <img src={img3} className="d-block w-100" alt="Imagen 1"/>
                     </div>
                 </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <div className="iconsContainer">
+                    <a href="https://www.facebook.com/sushiTeriyakiAng/">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                    </a>
+                    <a href="https://www.facebook.com/sushiTeriyakiAng/">
+                        <ion-icon name="logo-facebook"></ion-icon>
+                    </a>
+                </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Previous</span>
                 </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>
